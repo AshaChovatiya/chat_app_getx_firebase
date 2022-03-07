@@ -23,8 +23,6 @@ void main() async {
       ),
     );
   }
-  // measurementId: 'G-F79DJ0VFGS',
-  // measurementId: 'G-F79DJ0VFGS',
 
   runApp(const MyApp());
 }
