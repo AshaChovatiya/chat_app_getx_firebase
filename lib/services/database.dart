@@ -30,7 +30,7 @@ class DatabaseMethods {
     return FirebaseFirestore.instance
         .collection("users")
         .where("userName", isEqualTo: userName)
-        .where("userName", isNotEqualTo: PreferenceUtils.getString(keyUserName))
+        .where("UserId", isNotEqualTo: PreferenceUtils.getString(keyUserId))
         .get()
         .catchError((e) {
       if (kDebugMode) {

@@ -1,6 +1,7 @@
 import 'package:chat_app_getx_firebase/services/database.dart';
 import 'package:chat_app_getx_firebase/ui/ChatScreen/chat_screen.dart';
 import 'package:chat_app_getx_firebase/utils/PreferenceUtils.dart';
+import 'package:chat_app_getx_firebase/utils/app_utils.dart';
 import 'package:chat_app_getx_firebase/utils/loading_dialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
@@ -28,6 +29,9 @@ class SearchController extends GetxController {
             await DatabaseMethods().getAllUserInfo(searchTextController.text);
         userDocumentSnapshot.clear();
         userDocumentSnapshot.addAll(userInfoSnapshot.docs);
+        if (userDocumentSnapshot.isEmpty) {
+          showToast("No Data Found");
+        }
         if (kDebugMode) {
           print("User Document ${userDocumentSnapshot.length}");
         }
